@@ -10,7 +10,6 @@ function getMovies() {
       try {
         const resp = await axios.get(process.env.NEXT_PUBLIC_MOVIE_URL);
         const data = await resp?.data.results;
-        console.log(data);
         setApiData(data);
       } catch (error) {
         setServerError(error);
