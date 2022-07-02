@@ -8,7 +8,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 export const Modal = ({ handleClose, show, setShow, movieID, checked}) => {
 
         let { serverError, apiData } = getSummary(movieID, checked)
-        console.log(apiData);
 
         return (
             <div className={` ${show ? "absolute" : "hidden"}  w-full h-screen text-center justify-center ${styles.modal__container}`}>

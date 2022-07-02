@@ -8,24 +8,40 @@ function Swiper(props) {
     let i = 0 ;
     const films = props.data; 
     const [lastDirection, setLastDirection] = useState("");
+    const [swiping, setswiping] = useState(false);
     const [showModal, setshowModal] = useState(false);
     const [movieID, setmovieID] = useState(""); 
 
 
     const swiped = (direction, nameToDelete) => {
-        console.log('removing: ' + nameToDelete)
+        setshowModal(false);
+        setswiping(false)
         setLastDirection(direction)
     }
 
     const infoModal = (id) =>{
-      setmovieID(id);
-      setshowModal(true)
+      if (swiping) setshowModal(false);
+      
+
+        if(swiping == false && lastDirection == ""){
+          setmovieID(id);
+          setshowModal(true)
+        }
+
+
+     
+
+    }
+
+    const onSwipe = () =>{
+      setswiping(true)
     }
 
   
     useEffect(() => {
       const timer = setTimeout(() => {
         setLastDirection("");
+        setmovieID("");
       }, 500);
       return () => clearTimeout(timer);
     }, [lastDirection])
@@ -34,7 +50,7 @@ function Swiper(props) {
       <>
         <div className={styles.cardContainer}>
               {films?.map((elem,i) =>
-                  <TinderCard  key={i} className={styles.swipe} onSwipe={(dir) => swiped(dir, elem?.title)}  >
+                  <TinderCard  key={i} className={styles.swipe} onSwipe={(dir) => swiped(dir, elem?.title)}  onCardLeftScreen={() => setshowModal(false)}>
                     <div onClick={() => infoModal(elem.id) } style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${elem.poster_path}')` }} className={`${styles.card} shadow-md`}>
                     </div>
                   </TinderCard>
