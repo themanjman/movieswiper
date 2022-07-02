@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Swiper from '../components/swiper/swiper'
 import Footer from '../components/footer'
-import getMovies from '../hooks/getData'
+import {getMovies} from '../hooks/getData'
 import { useEffect, useState } from 'react'
 import Switch from 'react-ios-switch';
 
@@ -41,7 +41,7 @@ export default function Home() {
 
         <div className='flex flex-col justify-center items-center row h-[90vh]'>
         <span className='mb-32 text-6xl font-bold leading-6'>movieSwiper</span>
-          <Swiper data={apiData}></Swiper>
+          <Swiper checked={checked} data={apiData}></Swiper>
         </div>
 
 

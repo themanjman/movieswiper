@@ -10,7 +10,14 @@
 }
 
 
+.modal{
+  /* background: linear-gradient(#b64f4f, #6b70aa); */
+}
 
+.modal__container{
+  background: black;
+  opacity: 0.8;
+}
 
 
 .row {
