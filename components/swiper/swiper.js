@@ -27,7 +27,6 @@ function Swiper(props) {
 
   return (
     <>
-      <h1>React Tinder Card</h1>
       <div className={styles.cardContainer}>
             {films?.map((elem,i) =>
                 <TinderCard key={i} className={styles.swipe} onSwipe={(dir) => swiped(dir, elem?.title)}  >

@@ -39,11 +39,13 @@ export default function Home() {
         </div>
 
 
-
-        <div className='flex flex-col justify-center items-center row h-screen'>
+        <div className='flex flex-col justify-center items-center row h-[90vh]'>
+        <span className='mb-32 text-6xl font-bold leading-6'>movieSwiper</span>
           <Swiper data={apiData}></Swiper>
         </div>
 
+
+      <Footer></Footer>
       </div>
       
 
