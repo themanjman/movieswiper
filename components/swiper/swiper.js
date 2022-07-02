@@ -2,6 +2,7 @@ import {React,useEffect,useState} from 'react'
 import TinderCard from 'react-tinder-card'
 import styles from '../../styles/Home.module.css'
 
+
 function Swiper(props) {
     let i = 0 ;
     const films = props.data; 
@@ -35,6 +36,7 @@ function Swiper(props) {
                 </TinderCard>
             )}
 
+            
       </div>
 
 
