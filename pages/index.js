@@ -6,6 +6,8 @@ import Footer from '../components/footer'
 import {getMovies} from '../hooks/getData'
 import { useEffect, useState } from 'react'
 import Switch from 'react-ios-switch';
+import PuffLoader from "react-spinners/PuffLoader";
+
 
 
 export default function Home() {
@@ -41,7 +43,8 @@ export default function Home() {
 
         <div className='flex flex-col justify-center items-center row h-[90vh]'>
         <span className='mb-32 text-6xl font-bold leading-6'>movieSwiper</span>
-          <Swiper checked={checked} data={apiData} loading={isLoading}></Swiper>
+        {isLoading && <PuffLoader size={150} /> }
+        <Swiper checked={checked} data={apiData} loading={isLoading}></Swiper>
         </div>
 
 
