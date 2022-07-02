@@ -13,7 +13,7 @@ export default function Home() {
   const [bgColour, setbgColour] = useState(null);
   const [checked, setChecked] = useState(false);
   const [content, setContent] = useState(null); 
-  let { serverError, apiData } = getMovies(checked);
+  let { serverError, apiData,isLoading } = getMovies(checked);
 
   
 
@@ -41,7 +41,7 @@ export default function Home() {
 
         <div className='flex flex-col justify-center items-center row h-[90vh]'>
         <span className='mb-32 text-6xl font-bold leading-6'>movieSwiper</span>
-          <Swiper checked={checked} data={apiData}></Swiper>
+          <Swiper checked={checked} data={apiData} loading={isLoading}></Swiper>
         </div>
 
 

@@ -3,6 +3,7 @@ import TinderCard from 'react-tinder-card'
 import styles from '../../styles/Home.module.css'
 import {Modal} from '../modal/modal'
 import {getSummary} from '../../hooks/getData'
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 
@@ -56,6 +57,8 @@ function Swiper(props) {
 
     return (
       <>
+      {props.loading &&  <ClipLoader size={150} />}
+
         <div className={styles.cardContainer}>
               {films?.reverse().map((elem,i) =>
                   <TinderCard  key={i} className={styles.swipe} onSwipe={(dir) => swiped(dir, elem?.title) }>

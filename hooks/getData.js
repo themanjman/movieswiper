@@ -6,8 +6,11 @@ function getMovies(props) {
 
   const [apiData, setApiData] = useState(null);
   const [serverError, setServerError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       let url; 
       
@@ -21,15 +24,20 @@ function getMovies(props) {
         const resp = await axios.get(url);
         const data = await resp?.data.results;
         setApiData(data);
+        setIsLoading(false);
+
       } catch (error) {
         setServerError(error);
+        setIsLoading(false);
+
       }
     };
 
     fetchData();
   }, [props]);
 
-  return { apiData, serverError };
+  return { isLoading, apiData, serverError };
+
 }
 
 
