@@ -61,7 +61,7 @@ function Swiper(props) {
         <div className={styles.cardContainer}>
               {films?.reverse().map((elem,i) =>
                   <TinderCard  key={i} className={styles.swipe} onSwipe={(dir) => swiped(dir, elem?.title) }>
-                    <div onClick={() => infoModal(elem.id) } style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${elem.poster_path}')` }} className={`${styles.card} shadow-md`}>
+                    <div onClick={() => infoModal(elem.id) } style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${elem.poster_path}')` }} className={`${styles.card} shadow-md w-64 h-96`}>
                     </div>
                   </TinderCard>
               )}

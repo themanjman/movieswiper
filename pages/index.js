@@ -7,6 +7,8 @@ import {getMovies} from '../hooks/getData'
 import { useEffect, useState } from 'react'
 import Switch from 'react-ios-switch';
 import PuffLoader from "react-spinners/PuffLoader";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight, faLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -42,9 +44,21 @@ export default function Home() {
 
 
         <div className='flex flex-col justify-center items-center row h-[90vh]'>
-        <span className='mb-32 text-6xl font-bold leading-6'>movieSwiper</span>
-        {isLoading && <PuffLoader size={150} /> }
-        <Swiper checked={checked} data={apiData} loading={isLoading}></Swiper>
+          <span className='mb-16 text-6xl font-bold leading-6'>movieSwiper</span>
+          
+          <div className='grid grid-cols-2 space-x-8 mb-8'>
+            <div className='flex space-x-2 items-center'> 
+              <FontAwesomeIcon className='w-8' icon={faArrowLeft} size={4} />
+              <span>Swipe Left to dislike</span>
+            </div>
+            <div className='flex space-x-2 items-center'> 
+              <span>Swipe Right to dislike</span>
+              <FontAwesomeIcon className='w-8' icon={faArrowRight} size={4} />
+            </div> 
+          </div>
+
+          {isLoading && <PuffLoader size={150} /> }
+          <Swiper checked={checked} data={apiData} loading={isLoading}></Swiper>
         </div>
 
 
