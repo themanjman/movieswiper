@@ -10,9 +10,9 @@ export const Modal = ({ handleClose, show, setShow, movieID, checked}) => {
         let { serverError, apiData } = getSummary(movieID, checked)
 
         return (
-            <div className={` ${show ? "absolute" : "hidden"}  w-full h-screen text-center justify-center ${styles.modal__container}`}>
-                <div id="defaultModal" tabIndex="-1" aria-hidden="true" className="flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden absolute  z-50 w-full md:inset-0 h-modal md:h-full">
-                    <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
+            <div className={` ${show ? "absolute" : "hidden"} inset-0 w-full h-screen text-center justify-center ${styles.modal__container}`}>
+                <div id="defaultModal" tabIndex="-1" aria-hidden="true" className="flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden absolute  z-50 w-full inset-0 h-modal h-full">
+                    <div className="relative p-4 w-full max-w-2xl h-auto">
 
                         <div className={`relative rounded-lg shadow ${styles.modal}`}>
 
@@ -37,7 +37,7 @@ export const Modal = ({ handleClose, show, setShow, movieID, checked}) => {
 
                             <div className="grid grid-cols-2 rounded-full border-b p-4 dark:border-gray-600">
                                 <div className='text-left'>
-                                    <FontAwesomeIcon icon={faStar} color="gold"/> {apiData?.vote_average}
+                                    <FontAwesomeIcon className='w-4' icon={faStar} color="gold"/> {apiData?.vote_average}
                                 </div>
                                 <div className='text-right'>
                                     {apiData?.genres.map((elem,i) =>
